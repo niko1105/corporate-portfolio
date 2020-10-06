@@ -1,0 +1,86 @@
+#contact-wrap {
+  width: 100%;
+  height: auto;
+  background: $bg;
+  padding: 50px 0;
+  margin-bottom: 0;
+  .container {
+    margin: 0 auto;
+    h1 {
+      text-align: center;
+      font-size: 35px;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    form {
+      width: 80%;
+      margin: 0 auto;
+      .item {
+        overflow: hidden;
+        margin-bottom: 20px;
+        label {
+          float: left;
+          margin-right: 20px;
+          width: 150px;
+          border-left: solid 3px skyblue;
+          padding-left: 10px;
+        }
+        input[type="text"],
+        input[type="email"] {
+          border: solid 1px $bg;
+          border-radius: 5px;
+          padding: 10px;
+          font-size: 15px;
+          width: 70%;
+        }
+        textarea {
+          border: solid 1px $bg;
+          border-radius: 5px;
+          padding: 10px;
+          height: 160px;
+          font-size: 15px;
+          width: 70%;
+        }
+      }
+      .btn-area {
+        width: 200px;
+        margin: 30px auto 0;
+        input[type="submit"] {
+          background: $bg-btn;
+          border: none;
+          color: white;
+          font-size: 17px;
+          font-weight: bold;
+          padding: 10px 20px;
+          margin: 0 5px;
+          border-radius: 8%;
+          cursor: pointer;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  #contact-wrap {
+    .container {
+      form {
+        width: 90%;
+        margin: 0 auto;
+        .item {
+          input[type="text"],
+          input[type="email"] {
+            width: 100%;
+          }
+          textarea {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

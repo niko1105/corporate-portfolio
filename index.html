@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
+  <title>corporate site</title>
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/jquery.bgswitcher.js"></script>
+  <!-- スムーズスクロール部分の記述 -->
+  <script>
+    $(function () {
+      // #で始まるアンカーをクリックした場合に処理
+      $('a[href^="#"]').click(function () {
+        // スクロールの速度
+        var speed = 400; // ミリ秒
+        // アンカーの値取得
+        var href = $(this).attr("href");
+        // 移動先を取得
+        var target = $(href == "#" || href == "" ? 'html' : href);
+        // 移動先を数値で取得
+        var position = target.offset().top - 30;
+        // スムーススクロール
+        $('body,html').animate({ scrollTop: position }, speed, 'swing');
+        return false;
+      });
+    });
+    // ロード時にfadein
+    $(function () {
+      $(window).on('load', function () {
+        $('.main-message').hide().fadeIn(2000);
+      });
+    })
+
+    // スクロールに合わせてfadein
+    $(function () {
+      $(window).scroll(function () {
+        $('.fadein').each(function () {
+          var elemPos = $(this).offset().top;
+          var scroll = $(window).scrollTop();
+          var windowHeight = $(window).height();
+          if (scroll > elemPos - windowHeight) {
+            $(this).addClass('scrollin');
+          }
+        });
+      });
+    });
+
+    // ページトップに戻る
+    $(function () {
+      var pagetop = $('#page-top')
+      pagetop.hide();
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 400) {
+          pagetop.fadeIn();
+        } else {
+          pagetop.fadeOut();
+        }
+      })
+    });
+
+    // <!-- bgswitcher-script -->
+    $(function ($) {
+      $('.main-visual-img').bgSwitcher({
+        images: ['./img/top-main.jpg', './img/top-main2.jpg', './img/top-main3.jpg'],
+        effect: "fade",
+        easing: "linear"
+      });
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/d8c9c31bd0.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <header>
+    <div class="header-wrap">
+      <h1><a href="./index.html">株式会社ORIGIN.</a></h1>
+      <!-- pc -->
+      <ul id="navi">
+        <li><a href="./business.html">Business</a></li>
+        <li><a href="./company.html">Company</a></li>
+        <li><a href="./news.html">News</a></li>
+        <li><a href="./recruit.html">Recruit</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+      <!-- sp -->
+      <div class="hamburger">
+        <input id="input" type="checkbox">
+        <label id="label" for="input"><div class="line1"></div><div class="line2"></div><div class="line3"></div></label>
+        <ul id="contents">
+          <li><a href="./business.html">Business</a></li>
+          <li><a href="./company.html">Company</a></li>
+          <li><a href="./news.html">News</a></li>
+          <li><a href="./recruit.html">Recruit</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </div>    
+    </div>
+  </header>
+  <main>
+    <section id="main-visual">
+      <div class="main-visual-img">
+      </div>
+      <div class="main-message">
+        <h1>Change the world<br>more creative</h1>
+        <p><a href="#about"><i class="fas fa-angle-down fa-3x faa-bounce animated"></i></a></p>
+      </div>
+    </section>
+
+    <section id="about" class="fadein">
+      <div class="container">
+        <div class="about-left">
+          <h2>About<br><span>ORIGIN.とは</span></h2>
+          <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+        </div>
+        <div class="about-right">
+          <img src="./img/top-about.jpg" alt="about">
+        </div>
+      </div>
+    </section>
+
+    <section id="business" class="fadein">
+      <div class="container">
+        <div class="business-left">
+          <h2>Business<br><span>事業内容</span></h2>
+          <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          <div class="btn"><a href="./business.html">more</a></div>
+        </div>
+        <div class="business-right">
+          <img src="./img/top-business.jpg" alt="business">
+        </div>
+      </div>
+    </section>
+    <div class="direct-page">
+      <section id="company" class="fadein">
+        <div class="company-link">
+          <a href="./company.html">
+            <img src="./img/top-company.jpg" alt="company">
+            <h2>Company<br><span>会社情報</span></h2>
+          </a>
+        </div>
+      </section>
+      <section id="recruit" class="fadein">
+        <div class="recruit-link">
+          <a href="./recruit.html">
+            <img src="./img/top-recruit.jpg" alt="recruit">
+            <h2>Recruit<br><span>採用情報</span></h2>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <section id="news" class="fadein">
+      <div class="container">
+        <h2>News</h2>
+        <div class="news-wrapper">
+          <ul>
+            <li class="date">2020.03.01</li>
+            <li class="news-title">News&Topics</li>
+            <li class="content">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+          </ul>
+          <ul>
+            <li class="date">2020.02.25</li>
+            <li class="news-title">News&Topics</li>
+            <li class="content">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+          </ul>
+          <ul>
+            <li class="date">2020.02.21</li>
+            <li class="news-title">News&Topics</li>
+            <li class="content">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+          </ul>
+          <ul>
+            <li class="date">2020.01.05</li>
+            <li class="news-title">News&Topics</li>
+            <li class="content">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+          </ul>
+          <ul>
+            <li class="date">2020.01.05</li>
+            <li class="news-title">News&Topics</li>
+            <li class="content">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+          </ul>
+        </div>
+        <div class="btn"><a href="./news.html">more</a></div>
+      </div>
+    </section>
+  </main>
+  <p id="page-top">
+    <a href="#">
+    </a>
+  </p>
+  <footer>
+    <div id="footer-wrap">
+      <div class="footer-left">
+        <h3><a href="./index.html">株式会社ORIGIN.</a></h3>
+        <p>〒〇〇〇〇<br>
+          〇〇〇〇▲▲▲▲▲▲▲▲<br>
+          ✖︎✖︎✖︎✖︎✖︎✖︎✖︎〇〇〇〇▲▲▲</p>
+      </div>
+      <div class="footer-center">
+        <ul>
+          <li><a href="./business.html">Business</a></li>
+          <li><a href="./company.html">Company</a></li>
+          <li><a href="./news.html">News</a></li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <ul>
+          <li><a href="./recruit.html">Recruit</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copy"><small>© 2020 ikumi's-portfolio</small></p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+@mixin main-visual {
+  width: 100%;
+  height: 500px;
+  margin-bottom: 50px;
+  img {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    @include mq(tb){
+      height: 450px;
+    }
+    @include mq(sp){
+      height: 450px;
+    } 
+
+  }
+  h1 {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    @include mq(tb){
+      top: 25%;
+      left: 35%;
+    }
+    @include mq(sp){
+      top: 30%;
+      left: 25%;
+    } 
+  }
+}
+@mixin inner {
+  width: 980px;
+  margin: 0 auto;
+}
+@mixin business-part {
+  width: 100%;
+  height: 400px;
+  background: $bg;
+  .container {
+    @include inner;
+    display: flex;
+    justify-content: space-around;
+    .business-left {
+      width: 40%;
+      height: auto;
+    }
+    .business-right {
+      width: 50%;
+      height: auto;
+      img {
+        width: 500px;
+        height: auto;
+      }
+    }
+  }
+}
+@mixin business-part-md{
+  width: 100%;
+  height: auto;
+  background: $bg;
+  .container {
+    width: 100%;
+    height: auto;
+    display: block;
+    .business-left {
+      width: 100%;
+      height: auto;
+    }
+    .business-right {
+      width: 100%;
+      height: auto;
+      img{
+        width: 100%;
+        height: 400px;
+        @include mq(tb){
+          height: 370px;
+        }
+        @include mq(sp){
+          height: 370px;
+        }
+      }
+    }
+  }
+}
+@mixin btn {
+  width: 150px;
+  height: auto;
+  background: #0099cc;
+  text-align: center;
+  margin: 50px auto 0;
+  border-radius: 8%;
+  border: 2px solid #0099cc;
+  padding: 5px 0;
+  cursor: pointer;
+  &:hover {
+    background: white;
+    a {
+      color: #0099cc;
+    }
+  }
+  a {
+    width: 150px;
+    height: auto;
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+}
+@mixin rg-img {
+  width: 500px;
+  height: auto;
+}
+
+@mixin sm-img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+@mixin table {
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+  table {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    tr {
+      width: 100%;
+      .t-head {
+        width: 25%;
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 1px solid #cccccc;
+      }
+      td {
+        width: 70%;
+        height: 80px;
+        border-bottom: 1px solid #cccccc;
+      }
+    }
+  }
+}
+
+@mixin flex-wrap {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+@mixin flex-box {
+  width: 30%;
+  height: auto;
+  list-style: none;
+  background: #f0f0f0;
+  margin-bottom: 20px;
+}
+
+@mixin top-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0099cc;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  &:hover {
+    opacity: 0.7;
+  }
+  a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    &::before {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f106";
+      color: #fff;
+      font-size: 30px;
+    }
+  }
+}
+
+@mixin list-hover {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  display: inline-block;
+  &::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: white;
+    transform: scale(0, 1);
+    transform-origin: center top;
+    transition: transform 0.3s;
+  }
+  &:hover::after {
+    transform: scale(1, 1);
+  }
+}
+
+$breakpoints:(
+  sp:"screen and (max-width: 767px)",
+  tb:"screen and (max-width: 1023px)",
+  pc:"screen and (max-width: 1024px)",
+);
+
+@mixin mq($breakpoint){
+  @media #{map-get($breakpoints, $breakpoint)}{
+    @content;
+  }
+}

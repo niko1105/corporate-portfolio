@@ -1,0 +1,19 @@
+#business-visual{
+  @include main-visual;
+}
+
+#business-part1{
+  @include business-part;
+}
+#business-part2{
+  @include business-part;
+}
+
+@media screen and (max-width: 768px){
+  #business-part1{
+    @include business-part-md;
+  }
+  #business-part2{
+    @include business-part-md;
+  }
+}

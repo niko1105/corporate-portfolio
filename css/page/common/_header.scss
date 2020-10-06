@@ -1,0 +1,144 @@
+header {
+  background: white;
+  height: 100px;
+  width: 100%;
+  .header-wrap {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    h1 {
+      width: 300px;
+      position: absolute;
+      left: 20px;
+      @include mq(tb){
+        left: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    #navi {
+      padding-left: 0;
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      right: 0;
+      li {
+        list-style: none;
+        padding: 18px 0;
+        a {
+          text-decoration: none;
+          color: black;
+          position: relative;
+          display: inline-block;
+          &::after {
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 2px;
+            background: black;
+            transform: scale(0, 1);
+            transform-origin: center top;
+            transition: transform 0.3s;
+          }
+          &:hover::after {
+            transform: scale(1, 1);
+          }
+        }
+      }
+    }
+    .hamburger {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header{
+    .header-wrap {
+      max-width: 90%;
+      margin: 0 auto;
+      position: relative;
+      h1{
+        font-size: 28px;
+      }
+      #navi {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+        // inputタグのチェックボックスを非表示
+        #input {
+          display: none;
+        }
+        #label {
+          width: 50px;
+          height: 50px;
+          text-align: center;
+          line-height: 50px;
+          background-color: $bg-btn;
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          z-index: 999;
+          cursor: pointer;
+          .line1,
+          .line2,
+          .line3 {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+          }
+          .line1 {
+            position: absolute;
+            top: 18px;
+            right: 10px;
+          }
+          .line2 {
+            position: absolute;
+            top: 25px;
+            right: 10px;
+          }
+          .line3 {
+            position: absolute;
+            top: 32px;
+            right: 10px;
+          }
+        }
+        // メニューのデザイン
+        #contents {
+          background-color: $bg-btn;
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          position: fixed;
+          top: 0;
+          right: 0;
+          transform: translateX(100%);
+          transition: all 0.5s;
+          z-index: 99;
+          li {
+            font-size: 18px;
+            list-style: none;
+            margin-bottom: 50px;
+            &:first-child {
+              margin-top: 32px;
+            }
+            a {
+              @include list-hover;
+            }
+          }
+        }
+        #input:checked ~ #contents {
+          transform: translateX(50%);
+        }
+      }
+    }
+  }
+}

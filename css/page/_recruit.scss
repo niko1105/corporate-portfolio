@@ -1,0 +1,52 @@
+#recruit-visual{
+  @include main-visual;
+}
+
+#application-requirements{
+  @include table;
+  background: $bg;
+}
+
+#employee{
+  width: 100%;
+  height: auto;
+  .message-wrap{
+    @include flex-wrap;
+    li{
+      padding: 15px 10px;
+      text-align: center;
+      @include flex-box;
+      img{
+        @include sm-img;
+      }
+      p{
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px){
+  #employee{
+    .message-wrap{
+      width: 90%;
+      display: block;
+      li{
+        padding: 15px 10px;
+        text-align: center;
+        width: 80%;
+        list-style: none;
+        background: $bg;
+        margin: 0 auto 20px;      
+        img{
+          width: 100%;
+          height: 400px;
+        }
+        p{
+          text-align: left;
+        }
+      }
+    }
+  }
+    
+}
