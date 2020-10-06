@@ -21,7 +21,7 @@
         @include mq(tb){
           height: 400px;
         }
-        @include mq(tb){
+        @include mq(sp){
           height: 150px;
         } 
       }
