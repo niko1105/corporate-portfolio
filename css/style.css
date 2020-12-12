@@ -401,6 +401,7 @@ h2 {
 @media screen and (max-width: 1023px) {
   h2 {
     font-size: 35px;
+    margin-bottom: 15px;
   }
 }
 
@@ -1509,9 +1510,17 @@ footer .copy {
   height: auto;
 }
 
+#business-part1 .container .business-left p {
+  padding: 0 8px;
+}
+
 #business-part1 .container .business-right {
   width: 50%;
   height: auto;
+}
+
+#business-part1 .container .business-right p {
+  padding: 0 8px;
 }
 
 #business-part1 .container .business-right img {
@@ -1540,9 +1549,17 @@ footer .copy {
   height: auto;
 }
 
+#business-part2 .container .business-left p {
+  padding: 0 8px;
+}
+
 #business-part2 .container .business-right {
   width: 50%;
   height: auto;
+}
+
+#business-part2 .container .business-right p {
+  padding: 0 8px;
 }
 
 #business-part2 .container .business-right img {
@@ -1710,6 +1727,7 @@ footer .copy {
 #philosophy .sub-title {
   text-align: center;
   font-size: 28px;
+  margin-bottom: 20px;
 }
 
 #philosophy .philosophy-wrap {
@@ -1736,6 +1754,7 @@ footer .copy {
 
 #philosophy .philosophy-wrap li h3 {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 #company-profile {
@@ -1795,16 +1814,14 @@ footer .copy {
     height: auto;
     margin: 0 auto;
     padding: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
     -ms-flex-pack: distribute;
         justify-content: space-around;
     -ms-flex-flow: wrap;
         flex-flow: wrap;
   }
   #philosophy .philosophy-wrap li {
-    width: 40%;
+    width: 100%;
     height: 200px;
     list-style: none;
     background: #F0F0F0;
