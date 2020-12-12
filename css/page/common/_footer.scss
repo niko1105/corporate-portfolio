@@ -60,8 +60,9 @@ footer{
 @media screen and (max-width: 768px){
   footer{
     height: auto;
+    width:100%;
     #footer-wrap{
-      padding: 0;
+      padding: 0 20px;
       margin: 0;
       height: auto;
       width: 100%;
